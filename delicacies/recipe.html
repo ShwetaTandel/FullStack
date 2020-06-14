@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- View page for single Recipe to be shown-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get Cooking...</title>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <link href="./css/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <script>
+        $(function() {
+            $("#header").load("header.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div id="recipeDiv" class="container" style="min-height:100%">
+    </div>
+    <script src="./common/util.js"></script>
+    <script src="./model/single-recipe-model.js"></script>
+    <script src="./view/single-recipe-view.js"></script>
+    <script src="./controller/single-recipe-controller.js"></script>
+    <script>
+        /*This is the easiest method I opted for passing parameters in between pages.
+        In real case scenario this would be done using server side framework and it would be a post ajax or similar call.*/
+        var id = location.hash;
+        const app = new SingleRecipeController(new SingleRecipeModel(id.substr(1, id.length)), new SingleRecipeView());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- Listing page for the all recipes -->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Delicacies</title>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <link href="./css/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script>
+        $(function() {
+            $("#header").load("header.html");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="header"></div>
+    <br />
+    <div id="list" class="container"></div>
+    <script src="./model/all-recipes-list-model.js"></script>
+    <script src="./view/all-recipes-list-view.js"></script>
+    <script src="./controller/all-recipes-list-controller.js"></script>
+    <script>
+        const app = new AllRecipesListController(new RecipesListModel(), new RecipesListView());
+    </script>
+</body>
+
+</html>
