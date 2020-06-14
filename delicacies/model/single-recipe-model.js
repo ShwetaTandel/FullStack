@@ -30,7 +30,7 @@ class SingleRecipeModel {
     if(!isNaN(parseInt(newServing))){
       this.recipe.ingredients.forEach(ingredient => {
 
-      let newQty = (eval(ingredient.qty.replace(' ','+')) * (newServing/oldServing));
+      let newQty = (eval(ingredient.qty.replace(' ','+')) * (newServing/oldServing).toFixed(2));
       ingredient.qty = "" +(isNaN(newQty) ? "" : (Number.isInteger(newQty) ? newQty : getFraction(newQty)));
     })
     this.recipe.servings = newServing;
